@@ -98,24 +98,3 @@ class Board {
     }
     println();
   }
-}
-
-Board board;
-
-void setup() {
-  size(400, 400);
-  board = new Board();
-}
-
-void draw() {
-  background(100);
-  board.display();
-}
-
-void keyPressed() {
-  if (key == 'r' || key == 'R') {
-    board.rollDice();
-  } else if (key == 'f' || key == 'F') {
-    board.drawResults();
-  }
-}

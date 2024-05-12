@@ -1,4 +1,18 @@
-) {
+abstract class GameObject {
+  PVector position;
+  
+  GameObject(float x, float y) {
+    position = new PVector(x, y);
+  }
+  
+  abstract void display();
+}
+
+class Dice extends GameObject {
+  int value;
+  PFont font;
+  
+  Dice(float x, float y, PFont font) {
     super(x, y);
     this.font = font;
     rollDice();
@@ -74,4 +88,34 @@ class Board {
     text("Último valor: " + dice.value, width - 10, 10);
   }
   
- 
+  void drawResults() {
+    println("Resultados de los dados:");
+    for (int i = 0; i < diceRolls.size(); i++) {
+      if (i > 0 && i % 4 == 0) {
+        println();
+      }
+      print(diceRolls.get(i) + "\t");
+    }
+    println();
+  }
+}
+
+Board board;
+
+void setup() {
+  size(400, 400);
+  board = new Board();
+}
+
+void draw() {
+  background(100);
+  board.display();
+}
+
+void keyPressed() {
+  if (key == 'r' || key == 'R') {
+    board.rollDice();
+  } else if (key == 'f' || key == 'F') {
+    board.drawResults();
+  }
+}

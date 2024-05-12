@@ -88,13 +88,4 @@ class Board {
     text("Último valor: " + dice.value, width - 10, 10);
   }
   
-  void drawResults() {
-    println("Resultados de los dados:");
-    for (int i = 0; i < diceRolls.size(); i++) {
-      if (i > 0 && i % 4 == 0) {
-        println();
-      }
-      print(diceRolls.get(i) + "\t");
-    }
-    println();
-  }
+ 

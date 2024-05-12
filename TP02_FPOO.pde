@@ -1,18 +1,4 @@
-abstract class GameObject {
-  PVector position;
-  
-  GameObject(float x, float y) {
-    position = new PVector(x, y);
-  }
-  
-  abstract void display();
-}
-
-class Dice extends GameObject {
-  int value;
-  PFont font;
-  
-  Dice(float x, float y, PFont font) {
+) {
     super(x, y);
     this.font = font;
     rollDice();
